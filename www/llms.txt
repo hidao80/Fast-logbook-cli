@@ -1,0 +1,24 @@
+# Fast-logbook-cli
+
+> `flb` is a single-binary Deno/TypeScript CLI that parses Fast-logbook-PWA's plain-text work log, sums elapsed time per category over an optional date range, and prints the result as JSON, Markdown, TSV, CSV, JSONL, or XML.
+
+Usage: `flb [-f|--from <YYYY-MM-DD>] [-t|--to <YYYY-MM-DD>] [-F|--format <json|markdown|tsv|csv|jsonl|xml|md>] /path/to/file`. Omitting `--from`/`--to` summarizes the entire file. `--round <minutes>` rounds the aggregated hours.
+
+Log line format: `YYYY-MM-DD HH:MM<category>;<detail>` (`;<detail>` optional), one punch per line. Work time per category is the elapsed time between consecutive punches; the final punch in the file is an end-of-work marker and adds no time.
+
+## Docs
+
+- [README](../README.md): Installation, full CLI reference, examples, log format, development commands.
+- [Architecture Decision Records](./ADR.md): Why the CLI is shaped the way it is — date-range filtering, rounding, output-format escaping rules, argument shape.
+- [Landing page](./index.html): Human-facing overview.
+
+## Source
+
+- [main.ts](../main.ts): CLI entry point, argument parsing, usage text.
+- [src/logbook.ts](../src/logbook.ts): Log-line parsing and per-category time aggregation (`filterByDateRange`, `summarize`).
+- [src/formatters.ts](../src/formatters.ts): Output formatters and format dispatch (`format`) for json/markdown/tsv/csv/jsonl/xml.
+
+## Optional
+
+- [LICENSE](../LICENSE): MIT license text.
+- [deno.json](../deno.json): Task definitions (`start`, `test`, `build`) and import map.
