@@ -1,3 +1,5 @@
+<center><img src="https://github.com/hidao80/Fast-logbook-cli/blob/main/docs/social-preview.png"></center>
+
 # Fast-logbook-cli
 
 A command-line tool that summarizes work time and activity logs from a Fast-logbook-PWA log file over a given date range.
