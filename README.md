@@ -94,6 +94,9 @@ deno task test    # run tests
 deno fmt           # format code
 deno task build    # compile the flb binary
 ```
+## Contributing
+
+Bug reports and pull requests are welcome.
 
 ## License
 
